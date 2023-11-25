@@ -1,0 +1,16 @@
+{
+	"name": "worker-api",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy src/index.js",
+		"dev": "wrangler dev src/index.js",
+		"test": "vitest"
+	},
+	"dependencies": {
+		"postgres": "^3.4.3"
+	},
+	"devDependencies": {
+		"wrangler": "^3.17.1"
+	}
+}
