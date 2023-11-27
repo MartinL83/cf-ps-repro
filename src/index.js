@@ -1,20 +1,14 @@
-import postgres from 'postgres';
+import { Hono } from 'hono';
+import { Client } from 'pg'
 
-const sql = postgres('postgresql://u:p@host:port/database?sslmode=require');
+const app = new Hono();
 
-export default {
-  async fetch(request, env, ctx) {
-    const result = await sql`
-      SELECT *
-      FROM table_name
-      WHERE thing = 'stuff'
-      LIMIT 1;
-    `;
+app.get('/', async (c) => {
+  const client = new Client("postgresql://<user>:<password>@<host>:<port>/<db>?sslmode=require")
+  await client.connect()
 
-    const response = Response.json({
-      result,
-    });
+  return c.json({ response: 'result' })
 
-    return response;
-  },
-};
+})
+
+export default app;
