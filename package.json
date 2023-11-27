@@ -8,7 +8,8 @@
 		"test": "vitest"
 	},
 	"dependencies": {
-		"postgres": "^3.4.3"
+		"hono": "^3.10.2",
+		"pg": "^8.11.3"
 	},
 	"devDependencies": {
 		"wrangler": "^3.17.1"
